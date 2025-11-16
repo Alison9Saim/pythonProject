@@ -15,7 +15,7 @@
 
         <!-- Fontawesome Kit-->
         <script src="https://kit.fontawesome.com/15e26f6a5c.js" crossorigin="anonymous"></script>
-        <title>Portfolio</title>
+        <title>Would You Rather</title>
     </head>
     <body>
 
@@ -58,37 +58,29 @@
 
 
 
-
-        <!--
-        <h2>Welcome To GFG</h2>
-        <h4>Flask: Rendering Templates</h4>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('index') }}">Index</a>
-        <a href="{{ url_for('about') }}">About</a>
-        -->
-
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#demoCollapse" aria-expanded="false" aria-controls="demoCollapse">
-          Toggle Content
-        </button>
-
-        <div class="collapse" id="demoCollapse">
-          <div class="card card-body">
-            Bootstrap JS is working — expand and collapse both work!
+        <div class="container mt-5">
+          <div class="card shadow-lg">
+            <div class="card-body text-center">
+              <h3 class="card-title mb-4">{{ question }}</h3>
+              <div class="d-flex justify-content-around mb-4">
+                <a href="{{ url_for('vote', row_index=row_index, choice='A') }}"
+                   class="btn btn-primary btn-lg">
+                  {{ option_a }}
+                </a>
+                <a href="{{ url_for('vote', row_index=row_index, choice='B') }}"
+                   class="btn btn-success btn-lg">
+                  {{ option_b }}
+                </a>
+              </div>
+              <h5>Your Points: <span class="badge bg-info">{{ points }}</span></h5>
+            </div>
           </div>
         </div>
-
-        {{ data }}
-
-        {{ obj }}
 
 
 
         {% block body %}
-
-        <p>This is a Flask application.</p>
-        <!-- Font Awesome Icons -->
-        <i class="fa-solid fa-user"></i>
-        <i class="fa-brands fa-facebook"></i>
+        this is the bodsy
 
 
 
