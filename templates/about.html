@@ -1,8 +1,46 @@
-{% extends 'index.html' %}
-{% block body %}
-<ul>
-    {% for social in sites %}
-    <li>{{ social }}</li>
-    {% endfor %}
-</ul>
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg">
+  <div class="card-body">
+    <h2 class="mb-4">About This Game</h2>
+    <p>
+      Welcome to <strong>Would You Rather</strong> — a simple but addictive game
+      where you choose between two options and see how your choice compares with
+      everyone else’s. It’s a fun way to spark conversations, challenge your
+      instincts, and laugh at the surprising results.
+    </p>
+
+    <h4>How It Works</h4>
+    <ul>
+      <li>You’ll be presented with a question and two possible answers.</li>
+      <li>Pick the option you prefer — Option A or Option B.</li>
+      <li>See how many other players agreed with you.</li>
+      <li>Earn points for picking the more popular choice!</li>
+    </ul>
+
+    <h4>Why We Built It</h4>
+    <p>
+      We wanted to create a lighthearted game that anyone can play in seconds.
+      Whether you’re killing time, debating with friends, or just curious about
+      what people think, this game is designed to entertain and connect.
+    </p>
+
+    <h4>Features</h4>
+    <ul>
+      <li>Randomized questions pulled from our game database.</li>
+      <li>Instant feedback on how your choice compares.</li>
+      <li>Funny “loss messages” when you pick the less popular option.</li>
+      <li>Simple scoring system to keep track of your streaks.</li>
+    </ul>
+
+    <h4>Future Plans</h4>
+    <p>
+      We’re working on adding more questions, themed categories, and multiplayer
+      modes so you can challenge your friends directly. Stay tuned!
+    </p>
+  </div>
+</div>
 {% endblock %}

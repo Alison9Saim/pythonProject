@@ -1,11 +1,18 @@
-{% extends 'index.html' %}
+{% extends "base.html" %}
 
-{% block body %}
+{% block title %}Home{% endblock %}
 
-<p> This is a home page</p>
-    <!-- Font Awesome Icons -->
-    <i class="fa-solid fa-user"></i>
-    <i class="fa-brands fa-facebook"></i>
-
-
+{% block content %}
+<div class="card shadow-lg text-center">
+  <div class="card-body">
+    <h2 class="mb-4">Welcome to Would You Rather</h2>
+    <p>
+      A fun and interactive game where you choose between two options and see how your choice compares
+      with others. Test your instincts, spark conversations, and enjoy the results!
+    </p>
+    <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg">
+      <i class="fa-solid fa-play"></i> Start Playing
+    </a>
+  </div>
+</div>
 {% endblock %}

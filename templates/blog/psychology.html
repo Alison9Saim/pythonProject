@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Psychology{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg">
+  <div class="card-body">
+    <h2 class="mb-4">Psychology of Choices</h2>
+    <p class="text-muted">Explore the deeper meaning behind the decisions we make in the game.</p>
+
+    <ul class="list-unstyled">
+      <li><a href="{{ url_for('blog_post1') }}">Why We Love 'Would You Rather'</a></li>
+      <li><a href="{{ url_for('blog_post5') }}">What Your Choices Say About You</a></li>
+      <!-- Add more psychology posts here -->
+    </ul>
+
+    <a href="{{ url_for('blog') }}" class="btn btn-secondary mt-3">Back to Blog</a>
+  </div>
+</div>
+{% endblock %}

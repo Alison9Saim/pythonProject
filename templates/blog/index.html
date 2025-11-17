@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg">
+  <div class="card-body">
+    <h2 class="mb-4">Game Insights & Fun Reads</h2>
+    <p>Explore articles about choices, psychology, and the fun behind "Would You Rather".</p>
+
+    <!-- Categories -->
+    <div class="mb-4">
+      <h5>Categories</h5>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="">Funny Questions</a></li>
+        <li class="list-inline-item"><a href="">Psychology</a></li>
+        <li class="list-inline-item"><a href="">History</a></li>
+      </ul>
+    </div>
+
+    <!-- Blog list -->
+    <ul class="list-unstyled">
+      <li><a href="{{ url_for('blog_post1') }}">Why We Love 'Would You Rather'</a></li>
+      <li><a href="{{ url_for('blog_post2') }}">Top 10 Funniest Questions</a></li>
+      <li><a href="{{ url_for('blog_post3') }}">The History of 'Would You Rather'</a></li>
+      <li><a href="{{ url_for('blog_post4') }}">How to Write Your Own Questions</a></li>
+      <li><a href="{{ url_for('blog_post5') }}">What Your Choices Say About You</a></li>
+    </ul>
+
+    <!-- Pagination -->
+    <nav aria-label="Blog pagination">
+      <ul class="pagination justify-content-center mt-4">
+        <li class="page-item disabled"><a class="page-link">Previous</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg">
+  <div class="card-body">
+    <h2 class="mb-4">Game Insights & Fun Reads</h2>
+    <p>Explore articles about choices, psychology, and the fun behind "Would You Rather".</p>
+
+    {% for post in posts %}
+      <div class="mb-4">
+        <h4>{{ post.title }}</h4>
+        <p class="text-muted">Published on {{ post.date }}</p>
+        <p>{{ post.summary }}</p>
+        <a href="{{ url_for('blog_post', post_id=post.id) }}" class="btn btn-link">Read more</a>
+      </div>
+      <hr>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

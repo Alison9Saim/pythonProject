@@ -1,16 +1,36 @@
-{% extends 'index.html' %}
-{% block body %}
+{% extends "base.html" %}
 
-this is the contact page
+{% block title %}Contact Us{% endblock %}
 
-{% if person == "admin" %}
-  <p> Admin Section </p>
-{% elif person == "maintainer" %}
-  <p> App Source Page for Maintainer</p>
-{% elif person == "member" %}
-  <p> Hope you are enjoying our services</p>
-{% else %}
-  <p> Hello, {{ person }}</p>
-{% endif %}
+{% block content %}
+<div class="card shadow-lg">
+  <div class="card-body">
+    <h2 class="mb-4">Contact Us</h2>
+    <p>If you have questions about the game, feedback, or business inquiries, please reach out below.</p>
 
+    <h5>Our Info</h5>
+    <ul>
+      <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
+      <li>Phone: +1 (555) 123‑4567</li>
+      <li>Address: 123 Game Street, Toronto, ON, Canada</li>
+    </ul>
+
+    <h5>Send Us a Message</h5>
+    <form method="post" action="#">
+      <div class="mb-3">
+        <label for="name" class="form-label">Your Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Your Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Type your message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
