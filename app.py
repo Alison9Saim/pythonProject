@@ -2,9 +2,15 @@ from flask import Flask, render_template, redirect, url_for, session
 import gspread
 from google.oauth2.service_account import Credentials
 import os, json, random
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # required for sessions
+
+@app.context_processor
+def inject_now():
+    return {'current_year': datetime.now().year}
+
 
 # Define the scope
 SCOPES = [
@@ -33,28 +39,29 @@ def index():
     headers = values[0]
     rows = values[1:]
 
+    # Pick a random row (skip header)
     random_idx = random.randint(0, len(rows)-1)
     row = rows[random_idx]
-    sheet_row_number = random_idx + 2  # account for header row
+
+    # Actual sheet row number = header row (1) + offset
+    sheet_row_number = random_idx + 2
 
     question = row[0]
     option_a = row[1]
     option_b = row[2]
-    votes_a = int(row[3]) if row[3] else 0
-    votes_b = int(row[4]) if row[4] else 0
 
-    # initialize points if not set
+    # Initialize points if not set
     if "points" not in session:
         session["points"] = 0
 
-    return render_template("index.html",
-                           question=question,
-                           option_a=option_a,
-                           option_b=option_b,
-                           row_index=sheet_row_number,
-                           votes_a=votes_a,
-                           votes_b=votes_b,
-                           points=session["points"])
+    return render_template(
+        "index.html",
+        question=question,
+        option_a=option_a,
+        option_b=option_b,
+        row_index=sheet_row_number,   # ✅ pass row_index here
+        points=session["points"]
+    )
 
 @app.route("/vote/<int:row_index>/<choice>")
 def vote(row_index, choice):
@@ -75,33 +82,35 @@ def vote(row_index, choice):
     else:
         return redirect(url_for("index"))
 
-    # Decide points outcome
     if selected_votes >= other_votes:
         session["points"] = session.get("points", 0) + 1
         return redirect(url_for("index"))
     else:
-        # Save score before reset
         previous_points = session.get("points", 0)
         session["points"] = 0
-        return render_template("try_again.html", previous_points=previous_points, points=session["points"])
+
+        # Fetch funny messages from second sheet
+        messages_sheet = client.open_by_key(SPREADSHEET_ID).worksheet("Lose Messages")
+        messages = messages_sheet.col_values(1)  # all values from column A
+        loss_message = random.choice(messages) if messages else "Better luck next time!"
+
+        return render_template("try_again.html",
+                               previous_points=previous_points,
+                               points=session["points"],
+                               loss_message=loss_message)
 
 
-@app.route("/welcome")
-def welcome():
-    return render_template("welcome.html")
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
 
-@app.route("/home")
-def home():
-    return render_template("home.html")
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 @app.route("/about")
 def about():
-    sites = ['twitter', 'facebook', 'instagram', 'whatsapp']
-    return render_template("about.html", sites=sites)
-
-@app.route("/contact/<role>")
-def contact(role):
-    return render_template("contact.html", person=role)
+    return render_template("about.html")
 
 # Run locally
 if __name__ == "__main__":

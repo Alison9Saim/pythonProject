@@ -1,0 +1,24 @@
+<footer class="bg-light text-center text-lg-start mt-5 border-top">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Would You Rather Game</h5>
+        <p>A fun game where you choose between two options and see what others picked.</p>
+      </div>
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Quick Links</h5>
+        <ul class="list-unstyled mb-0">
+            <li><a href="" class="text-dark">Home</a></li>
+            <li><a href="{{ url_for('about') }}" class="text-dark">About</a></li>
+            <li><a href="{{ url_for('index') }}" class="text-dark">Play Game</a></li>
+            <li><a href="{{ url_for('privacy') }}" class="text-dark">Privacy Policy</a></li>
+            <li><a href="{{ url_for('contact') }}" class="text-dark">Contact Us</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-3 bg-secondary text-white">
+    © {{ current_year }} Would You Rather Game | All rights reserved
+  </div>
+</footer>

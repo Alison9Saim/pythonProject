@@ -11,10 +11,11 @@
   <div class="card shadow-lg text-center">
     <div class="card-body">
       <h3 class="text-danger mb-4">Oops! You picked the less popular choice.</h3>
-      <p><strong>{{ previous_points }}</strong> points.</p>
-      <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg mt-3">
-        Try Again
-      </a>
+        <p class="fst-italic text-muted">{{ loss_message }}</p>
+        <p><strong>{{ previous_points }}</strong> points.</p>
+        <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg mt-3">
+            Try Again
+        </a>
     </div>
   </div>
 </div>
