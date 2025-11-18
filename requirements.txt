@@ -3,3 +3,4 @@ gspread
 google-auth
 gunicorn
 requests
+python-dotenv
