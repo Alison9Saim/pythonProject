@@ -12,38 +12,60 @@
       <strong>Would You Rather</strong> isn’t just a fun game — it’s a mirror into personality.
       The way people answer reveals their preferences, values, and even their sense of humor.
       Different personalities approach the same question in unique ways, making every round
-      a fascinating look at human behavior.
+      a fascinating look at human behavior. This article explores five common personality types
+      and how they tend to respond to playful dilemmas.
     </p>
+
+    <!-- Personality illustration -->
+    <img src="{{ url_for('static', filename='images/personality_thinker.png') }}"
+         alt="Person thinking about funny questions" class="img-fluid rounded mb-4" style="max-width: 400px;">
 
     <h4 class="mt-4">The Adventurer</h4>
     <p>
       Adventurous personalities often choose the bold, risky, or outrageous option.
       They see the game as a chance to embrace excitement and test boundaries.
+      For example, given the choice between flying 2 feet off the ground or teleporting only to bathrooms,
+      they’ll likely pick flight — because it’s more thrilling, even if impractical.
     </p>
 
     <h4 class="mt-4">The Thinker</h4>
     <p>
       Analytical types pause to weigh the pros and cons. Their answers reflect logic,
       practicality, and a desire to make the “smart” choice, even in silly scenarios.
+      Faced with glitter sneezes vs. confetti burps, they’ll ask: “Which is easier to clean up?”
     </p>
 
     <h4 class="mt-4">The Joker</h4>
     <p>
       People with playful, humorous personalities pick the funniest or most ridiculous option.
       For them, the joy comes from making others laugh and keeping the mood light.
+      They’ll choose spaghetti hair over meatball eyes just for the punchline.
     </p>
 
     <h4 class="mt-4">The Comfort-Seeker</h4>
     <p>
       Some players lean toward safety and familiarity. Their answers highlight a preference
       for stability, comfort, and avoiding unnecessary chaos.
+      They’ll avoid glitter sneezes and choose whispering over shouting — anything that keeps life calm.
     </p>
 
     <h4 class="mt-4">The Dreamer</h4>
     <p>
       Creative personalities gravitate toward imaginative, fantastical scenarios.
       They love exploring “what if” worlds and seeing where their imagination can take them.
+      Dragons over dinosaurs? Absolutely. Flying capes over clown shoes? No contest.
     </p>
+
+    <!-- Personality response chart -->
+    <div class="mt-4">
+      <h4>Visualizing Personality Trends</h4>
+      <img src="{{ url_for('static', filename='images/personality_chart.png') }}"
+           alt="Personality response chart" class="img-fluid rounded" style="max-width: 500px;">
+      <p class="text-muted mt-2">
+        This chart shows how different personality types tend to respond to common “Would You Rather” questions.
+        It’s based on hypothetical data from community play sessions.
+      </p>
+    </div>
 
     <!-- Call-to-action section -->
     <div class="mt-4 p-3 border rounded bg-light">
@@ -53,6 +75,16 @@
         with others to see how different people respond to the same dilemmas.
       </p>
       <a href="{{ url_for('index') }}" class="btn btn-primary mt-2">Play Would You Rather</a>
+    </div>
+
+    <!-- Community guidelines -->
+    <div class="mt-4 p-3 border rounded bg-warning-subtle">
+      <h4>Community Guidelines</h4>
+      <p>
+        We encourage creativity and humor, but please keep submissions respectful.
+        Any questions that are inappropriate, offensive, or break our rules will be removed
+        from the game and the website. Our goal is to keep the experience fun and safe for everyone.
+      </p>
     </div>
 
     <a href="{{ url_for('blog') }}" class="btn btn-secondary mt-3">Back to Blog</a>

@@ -6,8 +6,20 @@
 <div class="card shadow-lg">
   <div class="card-body">
     <h2 class="mb-4">Funny "Would You Rather" Questions</h2>
-    <p class="text-muted">Lighthearted and hilarious scenarios to make you laugh.</p>
+    <p class="text-muted">Published on Nov 18, 2025</p>
 
+    <p>
+      Everyone loves a good laugh, and <strong>Would You Rather</strong> is one of the simplest ways
+      to spark hilarious conversations. These questions are designed to be lighthearted, silly,
+      and sometimes downright ridiculous — perfect for breaking the ice with friends or adding
+      humor to a family gathering.
+    </p>
+
+    <!-- Funny illustration -->
+    <img src="{{ url_for('static', filename='images/duck_vs_horses.png') }}"
+          alt="Funny Would You Rather Questions" style="width: 300px;" class="rounded mb-4">
+
+    <h4 class="mt-4">Top Funny Scenarios</h4>
     <ul class="list-unstyled">
       <li>Would you rather always talk in rhymes or sing everything you say?</li>
       <li>Would you rather have spaghetti for hair or meatballs for eyes?</li>
@@ -26,7 +38,22 @@
       <li>Would you rather wear a tutu to work every day or a superhero cape everywhere you go?</li>
     </ul>
 
-    <!-- New section encouraging gameplay -->
+    <h4 class="mt-4">Community Responses</h4>
+    <p>
+      Here’s a look at how players might respond to one of the funniest dilemmas:
+      <em>“Would you rather sneeze glitter or burp confetti?”</em>
+    </p>
+    <img src="{{ url_for('static', filename='images/would_you_rather_chart.png') }}"
+         alt="Glitter vs Confetti Responses Chart" class="img-fluid rounded mb-4">
+
+    <h4 class="mt-4">Why These Questions Work</h4>
+    <p>
+      Funny "Would You Rather" questions exaggerate everyday situations and push them into absurd territory.
+      Choosing between glitter sneezes and confetti burps is not just silly — it highlights how humor helps
+      us cope with awkward or impossible choices. These scenarios encourage creativity, laughter, and playful debate.
+    </p>
+
+    <!-- Gameplay encouragement -->
     <div class="mt-4 p-3 border rounded bg-light">
       <h4>Curious About How Others Would Respond?</h4>
       <p class="text-muted">
@@ -36,6 +63,16 @@
       </p>
       <p><strong>Play the game!</strong> Submit your own answers and compare your choices with others in real time.</p>
       <a href="{{ url_for('index') }}" class="btn btn-primary mt-2">Play Would You Rather</a>
+    </div>
+
+    <!-- Community guidelines -->
+    <div class="mt-4 p-3 border rounded bg-warning-subtle">
+      <h4>Community Guidelines</h4>
+      <p>
+        We welcome creativity and humor, but please keep submissions respectful.
+        Any questions that are inappropriate, offensive, or break our rules will be removed
+        from the game and the website. Our goal is to keep the experience fun and safe for everyone.
+      </p>
     </div>
 
     <a href="{{ url_for('blog') }}" class="btn btn-secondary mt-3">Back to Blog</a>
