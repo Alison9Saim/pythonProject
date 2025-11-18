@@ -1,8 +1,17 @@
 from flask import Flask, render_template, redirect, url_for, session, request
-import gspread
+import gspread, requests
+from dotenv import load_dotenv
 from google.oauth2.service_account import Credentials
 import os, json, random
 from datetime import datetime
+
+# Load variables from .env file
+load_dotenv()
+
+RECAPTCHA_SECRET_KEY = os.environ.get("RECAPTCHA_SECRET_KEY")
+print("Secret key loaded:", RECAPTCHA_SECRET_KEY is not None)
+
+
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # required for sessions
@@ -108,7 +117,45 @@ def privacy():
 
 @app.route("/contact")
 def contact():
+    # Renders the contact page with the form
     return render_template("contact.html")
+
+@app.route("/contact_form", methods=["POST"])
+def contact_form():
+    name = request.form.get("name")
+    email = request.form.get("email")
+    message = request.form.get("message")
+
+    # 🔎 Debug: check if the token is being sent
+    recaptcha_response = request.form.get("g-recaptcha-response")
+    print("Token received:", recaptcha_response)
+
+    verify_url = "https://www.google.com/recaptcha/api/siteverify"
+    payload = {"secret": RECAPTCHA_SECRET_KEY, "response": recaptcha_response}
+
+    r = requests.post(verify_url, data=payload)
+    result = r.json()
+
+
+
+    print("reCAPTCHA result:", result)
+
+    if not result.get("success"):
+        from flask import flash
+        flash("CAPTCHA verification failed. Please try again.", "danger")
+        return redirect(url_for("contact"))
+
+    # If CAPTCHA passes, handle the form
+    print(f"Contact form submitted: {name}, {email}, {message}")
+    from flask import flash
+    flash("Thanks, your message has been sent!", "success")
+
+    return redirect(url_for("contact"))
+
+
+
+
+
 
 @app.route("/about")
 def about():
@@ -169,7 +216,11 @@ def highscores():
     # Get all rows as list of dicts (first row must be headers: Name, Points, Timestamp)
     records = record_sheet.get_all_records()
 
-    return render_template("highscore.html", highscores=records)
+    # Sort records by Points (descending)
+    records_sorted = sorted(records, key=lambda x: int(x['Points']), reverse=True)
+
+    return render_template("highscore.html", highscores=records_sorted)
+
 
 
 
