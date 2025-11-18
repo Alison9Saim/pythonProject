@@ -5,6 +5,8 @@ from google.oauth2.service_account import Credentials
 import os, json, random
 from datetime import datetime
 
+
+
 # Load variables from .env file
 load_dotenv()
 
@@ -14,6 +16,20 @@ print("Secret key loaded:", RECAPTCHA_SECRET_KEY is not None)
 
 
 app = Flask(__name__)
+
+from flask_mail import Mail, Message
+
+# Gmail SMTP configuration
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.environ.get("MAIL_USERNAME")  # your business Gmail
+app.config['MAIL_PASSWORD'] = os.environ.get("MAIL_PASSWORD")  # your App Password
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get("MAIL_DEFAULT_SENDER")  # same Gmail
+
+mail = Mail(app)
+
+
 app.secret_key = "supersecretkey"  # required for sessions
 
 @app.context_processor
@@ -126,30 +142,26 @@ def contact_form():
     email = request.form.get("email")
     message = request.form.get("message")
 
-    # 🔎 Debug: check if the token is being sent
+    # Verify reCAPTCHA
     recaptcha_response = request.form.get("g-recaptcha-response")
-    print("Token received:", recaptcha_response)
-
     verify_url = "https://www.google.com/recaptcha/api/siteverify"
     payload = {"secret": RECAPTCHA_SECRET_KEY, "response": recaptcha_response}
-
     r = requests.post(verify_url, data=payload)
     result = r.json()
-
-
-
-    print("reCAPTCHA result:", result)
 
     if not result.get("success"):
         from flask import flash
         flash("CAPTCHA verification failed. Please try again.", "danger")
         return redirect(url_for("contact"))
 
-    # If CAPTCHA passes, handle the form
-    print(f"Contact form submitted: {name}, {email}, {message}")
+    # ✅ Send email notification
+    msg = Message("New Contact Form Submission",
+                  recipients=["iwould.you.rather200@gmail.com"])  # goes to your Gmail inbox
+    msg.body = f"Name: {name}\nEmail: {email}\nMessage:\n{message}"
+    mail.send(msg)
+
     from flask import flash
     flash("Thanks, your message has been sent!", "success")
-
     return redirect(url_for("contact"))
 
 
