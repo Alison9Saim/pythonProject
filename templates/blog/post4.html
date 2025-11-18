@@ -1,15 +1,46 @@
 {% extends "base.html" %}
 
-{% block title %}Why We Love 'Would You Rather'{% endblock %}
+{% block title %}How to submit your own questions{% endblock %}
 
 {% block content %}
 <div class="card shadow-lg">
   <div class="card-body">
-    <h2 class="mb-4">Why We Love "Would You Rather"</h2>
+    <h2 class="mb-4">How to Submit Your Own Questions</h2>
     <p class="text-muted">Published on Nov 17, 2025</p>
     <p>
       <strong>Would You Rather</strong> taps into curiosity and social comparison. People love seeing how their choices stack up against others. The game creates instant conversation starters, sparks debates, and reveals hidden preferences. Psychologists call this “decision play” — a safe way to explore values without real‑world consequences. That’s why it’s so engaging: every choice feels meaningful, even when it’s silly.
     </p>
+
+    <!-- New section about user-submitted questions -->
+    <div class="mt-4 p-3 border rounded bg-light">
+      <h4>Coming Soon: Submit Your Own Questions</h4>
+      <p>
+        We’re excited to announce that soon, <strong>you</strong> will be able to submit your own
+        hilarious, thought‑provoking, or downright tricky “Would You Rather” questions directly into the game.
+      </p>
+      <p>
+        Once submitted, your questions will be added to the pool for other players to enjoy and respond to.
+        This means the game will grow with community creativity, making every round more surprising and fun.
+      </p>
+      <p class="text-muted">
+        The submission form and functionality aren’t live yet — but we’re actively working on it next.
+        Stay tuned for updates!
+      </p>
+    </div>
+
+    <!-- New moderation rules section -->
+    <div class="mt-4 p-3 border rounded bg-warning-subtle">
+      <h4>Community Guidelines</h4>
+      <p>
+        To keep the game fun and safe for everyone, all submitted questions will be reviewed.
+        If a question is found to be inappropriate, offensive, or breaks our rules,
+        it will be removed from the game and the website.
+      </p>
+      <p>
+        We encourage creativity and humor, but please keep submissions respectful and suitable for all players.
+      </p>
+    </div>
+
     <a href="{{ url_for('blog') }}" class="btn btn-secondary mt-3">Back to Blog</a>
   </div>
 </div>

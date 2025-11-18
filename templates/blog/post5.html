@@ -1,15 +1,60 @@
 {% extends "base.html" %}
 
-{% block title %}Why We Love 'Would You Rather'{% endblock %}
+{% block title %}What Your Choices Say About You{% endblock %}
 
 {% block content %}
 <div class="card shadow-lg">
   <div class="card-body">
-    <h2 class="mb-4">Why We Love "Would You Rather"</h2>
-    <p class="text-muted">Published on Nov 17, 2025</p>
+    <h2 class="mb-4">What Your Choices Say About You</h2>
+    <p class="text-muted">Published on Nov 18, 2025</p>
+
     <p>
-      <strong>Would You Rather</strong> taps into curiosity and social comparison. People love seeing how their choices stack up against others. The game creates instant conversation starters, sparks debates, and reveals hidden preferences. Psychologists call this “decision play” — a safe way to explore values without real‑world consequences. That’s why it’s so engaging: every choice feels meaningful, even when it’s silly.
+      Every time you answer a <strong>Would You Rather</strong> question, you reveal a little piece of yourself.
+      Your choices reflect your personality, your values, and sometimes even your sense of humor.
+      While the game is lighthearted, the decisions you make can say a lot about how you think and what you prioritize.
     </p>
+
+    <h4 class="mt-4">1. Humor and Playfulness</h4>
+    <p>
+      Choosing the sillier option often shows you enjoy laughter and don’t take life too seriously.
+      It’s a reminder that fun and joy are just as important as logic.
+    </p>
+
+    <h4 class="mt-4">2. Risk vs. Comfort</h4>
+    <p>
+      Some questions test whether you lean toward adventure or safety.
+      Picking the bold choice can highlight your willingness to take risks, while the safer option shows you value stability.
+    </p>
+
+    <h4 class="mt-4">3. Creativity and Imagination</h4>
+    <p>
+      Outlandish scenarios spark creativity. If you gravitate toward the more imaginative answers,
+      it may reveal your love for storytelling, fantasy, and thinking outside the box.
+    </p>
+
+    <h4 class="mt-4">4. Social Connection</h4>
+    <p>
+      Many choices reflect how you interact with others.
+      Do you prefer scenarios that make people laugh together, or ones that spark debate?
+      Your answers can show whether you thrive on connection or enjoy standing out with unique perspectives.
+    </p>
+
+    <h4 class="mt-4">5. Values and Priorities</h4>
+    <p>
+      Even silly questions can reveal deeper values.
+      Choosing comfort over challenge, or honesty over humor, can highlight what matters most to you in everyday life.
+    </p>
+
+    <!-- Call-to-action section -->
+    <div class="mt-4 p-3 border rounded bg-light">
+      <h4>Curious About What Others Choose?</h4>
+      <p class="text-muted">
+        The real fun isn’t just in your own answers — it’s in seeing how others respond.
+        Play the game to compare your choices with the community and discover surprising insights about people’s personalities.
+      </p>
+      <a href="{{ url_for('index') }}" class="btn btn-primary mt-2">Play Would You Rather</a>
+    </div>
+
     <a href="{{ url_for('blog') }}" class="btn btn-secondary mt-3">Back to Blog</a>
   </div>
 </div>

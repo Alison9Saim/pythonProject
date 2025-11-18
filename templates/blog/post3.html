@@ -1,15 +1,60 @@
 {% extends "base.html" %}
 
-{% block title %}Why We Love 'Would You Rather'{% endblock %}
+{% block title %}How Different Personalities Respond to "Would You Rather"{% endblock %}
 
 {% block content %}
 <div class="card shadow-lg">
   <div class="card-body">
-    <h2 class="mb-4">Why We Love "Would You Rather"</h2>
+    <h2 class="mb-4">How Different Personalities Respond to "Would You Rather"</h2>
     <p class="text-muted">Published on Nov 17, 2025</p>
+
     <p>
-      <strong>Would You Rather</strong> taps into curiosity and social comparison. People love seeing how their choices stack up against others. The game creates instant conversation starters, sparks debates, and reveals hidden preferences. Psychologists call this “decision play” — a safe way to explore values without real‑world consequences. That’s why it’s so engaging: every choice feels meaningful, even when it’s silly.
+      <strong>Would You Rather</strong> isn’t just a fun game — it’s a mirror into personality.
+      The way people answer reveals their preferences, values, and even their sense of humor.
+      Different personalities approach the same question in unique ways, making every round
+      a fascinating look at human behavior.
     </p>
+
+    <h4 class="mt-4">The Adventurer</h4>
+    <p>
+      Adventurous personalities often choose the bold, risky, or outrageous option.
+      They see the game as a chance to embrace excitement and test boundaries.
+    </p>
+
+    <h4 class="mt-4">The Thinker</h4>
+    <p>
+      Analytical types pause to weigh the pros and cons. Their answers reflect logic,
+      practicality, and a desire to make the “smart” choice, even in silly scenarios.
+    </p>
+
+    <h4 class="mt-4">The Joker</h4>
+    <p>
+      People with playful, humorous personalities pick the funniest or most ridiculous option.
+      For them, the joy comes from making others laugh and keeping the mood light.
+    </p>
+
+    <h4 class="mt-4">The Comfort-Seeker</h4>
+    <p>
+      Some players lean toward safety and familiarity. Their answers highlight a preference
+      for stability, comfort, and avoiding unnecessary chaos.
+    </p>
+
+    <h4 class="mt-4">The Dreamer</h4>
+    <p>
+      Creative personalities gravitate toward imaginative, fantastical scenarios.
+      They love exploring “what if” worlds and seeing where their imagination can take them.
+    </p>
+
+    <!-- Call-to-action section -->
+    <div class="mt-4 p-3 border rounded bg-light">
+      <h4>Discover Your Personality Through Play</h4>
+      <p class="text-muted">
+        Curious about which personality your choices reveal? Play the game and compare your answers
+        with others to see how different people respond to the same dilemmas.
+      </p>
+      <a href="{{ url_for('index') }}" class="btn btn-primary mt-2">Play Would You Rather</a>
+    </div>
+
     <a href="{{ url_for('blog') }}" class="btn btn-secondary mt-3">Back to Blog</a>
   </div>
 </div>
