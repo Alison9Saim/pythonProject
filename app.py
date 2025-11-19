@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, session, request
+from flask import Flask, render_template, redirect, url_for, session, request, send_from_directory
 import gspread, requests
 from dotenv import load_dotenv
 from google.oauth2.service_account import Credentials
@@ -263,6 +263,11 @@ def submit_highscore():
     record_sheet.append_row([name, points, timestamp])
 
     return redirect(url_for("highscores"))
+
+
+@app.route('/ads.txt')
+def ads():
+    return send_from_directory('.', 'ads.txt')
 
 
 
